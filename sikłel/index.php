@@ -91,6 +91,11 @@
 						mysqli_query($c, 'DELETE FROM products where id="'.$_GET['delete'].'"');
 					}
 				}
+				if(isset($_GET['done'])) {
+					if(ctype_digit($_GET['done'])) {
+						mysqli_query($c, 'UPDATE products set done = not done where id="'.$_GET['done'].'"');
+					}
+				}
 
 
 				$query = mysqli_query($c, 'SELECT * FROM products'
@@ -104,13 +109,17 @@
 				if(mysqli_num_rows($query)) {
 					echo '<table><thead><tr>'
 					.implode('', array_map(function($e) {return "<th>$e</th>";}, array_merge(array_keys($data[0]), [''])))
-					.'</tr></thead><tbody>'
-					.implode('', array_map(function($row) {
-						return "<tr>".implode('', array_map(function($cell) {
+					.'</tr></thead><tbody>';
+					foreach($data as $product) {
+						$product['zdelete'] = '<a href="?delete='.$product['id'].'">X</a>';
+						$product['done'] = '<a href="?done='.$product['id'].'">'.($product['done']?'Zrobione':'Do zrobienia').'</a>';
+						echo '<tr>';
+						echo implode(array_map(function($cell) {
 							return "<td>$cell</td>";
-						}, array_merge($row, ['<a href="?delete='.$row['id'].'">X</a>'])))."</tr>";
-					}, $data))
-					.'</tbody></table>';
+						}, $product));
+						echo '</tr>';
+					}
+					echo '</tbody></table>';
 				}
 			}
 		?>

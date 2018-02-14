@@ -1,0 +1,10 @@
+body {
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	display: block;
+	margin: 3px;
+}
