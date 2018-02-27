@@ -8,8 +8,8 @@ class Lang {
     }
 
     public function loadLang($module, $submodule='*') {
-    	require_once('db.php');
-    	$c = new mysqli($db['host'], $db['user'], $db['passwd'], $db['db']);
+    	require_once('config.php');
+    	$c = new mysqli($__CONFIG['db']['host'], $__CONFIG['db']['user'], $__CONFIG['db']['passwd'], $__CONFIG['db']['db']);
     	if(!mysqli_connect_errno()) {
     		$query = mysqli_query($c, 'SELECT * FROM lang WHERE module="'.$module.'"'.($submodule!='*'?' AND submodule="'.$submodule.'"':'').' AND lang="'.$this->lang.'"');
     		$translations = [];

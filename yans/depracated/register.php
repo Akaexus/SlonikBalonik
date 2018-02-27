@@ -114,8 +114,8 @@
 				$forms = validateForm($fieldNames, $_POST);
 				if($forms['type']=='form') {
 					unset($forms['type']);
-					require_once('db.php');
-					$c = new mysqli($db['host'], $db['user'], $db['passwd'], $db['db']);
+					require_once('config.php');
+					$c = new mysqli($__CONFIG['db']['host'], $__CONFIG['db']['user'], $__CONFIG['db']['passwd'], $__CONFIG['db']['db']);
 					if(mysqli_connect_errno()) {
 						echo 'Połączenie z bazą zdechło';
 					}
