@@ -27,7 +27,7 @@ class yansRouter {
     if(array_key_exists($appName, $this->routes)) {
       $className = $this->routes[$appName];
     } else {
-      $className = '404';
+      $className = 'error404';
     }
     require_once(YANS_ROOT_PATH.'lib/apps/'.$className.'.class.php');
     $loadedApp = new $className();

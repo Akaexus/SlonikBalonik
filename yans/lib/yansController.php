@@ -25,7 +25,13 @@ class yansController {
   public function __construct() {
     global $__CONFIG;
     $this->router = yansRouter::getInstance($_REQUEST);
-    $this->router->addRoute(['app'=>'nothin', 'class'=>'xd']);
+    $routes = [
+      ['app'=>'/', 'class'=>'main'],
+      ['app'=>'register', 'class'=>'register'],
+    ];
+    foreach($routes as $route) {
+      $this->router->addRoute($route);
+    }
     $this->router->run();
   }
 

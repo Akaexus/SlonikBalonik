@@ -5,4 +5,4 @@ require_once(YANS_ROOT_PATH.'yansConfig.php');
 require_once(YANS_ROOT_PATH.'lib/yansController.php');
 
 $instance = yansController::run();
-echo '__';
+exit();
