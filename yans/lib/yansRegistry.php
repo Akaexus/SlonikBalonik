@@ -1,7 +1,9 @@
 <?php
+require_once(YANS_ROOT_PATH.'lib/yansTemplate.php');
 
 class yansRegistry {
   private static $instance;
+  public $skin;
   public $request;
 
   public function __construct() {
@@ -13,5 +15,9 @@ class yansRegistry {
       self::$instance = new yansRegistry();
     }
     return self::$instance;
+  }
+  function loadTemplate($templateName) {
+    $template = new yansTemplate($templateName);
+    return $template;
   }
 }

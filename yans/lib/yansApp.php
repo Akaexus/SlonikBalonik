@@ -6,6 +6,7 @@ abstract class yansApp {
   protected $registry;
   protected $DB;
   protected $member;
+  protected $skin;
 
   function __construct() {
     $this->registry = yansRegistry::getInstance();

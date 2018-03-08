@@ -23,7 +23,7 @@ class yansRouter {
   }
 
   public function run() {
-    $appName = $this->request['app']?$this->request['app']:'/';
+    $appName = array_key_exists('app', $this->request)?$this->request['app']:'/';
     if(array_key_exists($appName, $this->routes)) {
       $className = $this->routes[$appName];
     } else {

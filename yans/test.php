@@ -1,9 +1,13 @@
 <?php
 class xd {
-  public function __construct() {
-    echo 'xd';
-  }
+	public function a($xd, ...$args) {
+		echo $xd;
+		echo '<br>';
+		print_r($args);
+	}
+	
 }
 
-$heh = 'xd';
-$dupa = new $heh();
+$heh = new xd();
+
+call_user_func(array($heh, 'a'), 2137, 'heh');
