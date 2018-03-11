@@ -1,0 +1,91 @@
+@import 'config';
+@import 'avatar';
+@import 'utils';
+@import 'mixins';
+
+header#header {
+	background: $headerColor;
+	color: #fff;
+	a {
+		color: #fff;
+	}
+	>#main_nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		>ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		>#apps {
+			display: flex;
+			margin: 0;
+			padding: 0;
+			>a>li {
+				padding: 0.8em;
+				box-sizing: border-box;
+				line-height: 1;
+			}
+		}
+		#user_nav {
+			&, >#user_dropdown {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			#user_dropdown {
+				>* {
+					display: block;
+					margin: 0 0.4em;
+				}
+				>#user_dropdown_indicator:after {
+					@include triangle(bottom, #fff, 0.1em);
+				}
+			}
+		}
+	}
+}
+
+section#branding {
+	color: #FFF;
+	max-height: 100vh;
+	background-image: url($brandingImage), url($brandingBackground);
+	background-size: auto 100%, cover;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	position: relative;
+	min-height: 400px;
+	text-align: center;
+	>.logo {
+		display: block;
+		position: absolute;
+		left: calc(50%);
+		bottom: 20%;
+		transform: translateX(-50%);
+		>h1 {
+			margin: 0 0.5em*sqrt(3) 0 0;
+			text-transform: uppercase;
+			display: inline-block;
+			font-family: $headerFont;
+			font-weight: 300;
+			font-size: 5em;
+			position: relative;
+			&:before {
+				@include triangle(bottom, #fff, 0.5em);
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translate(100%, -50%);
+			}
+		}
+		.desc {
+			display: block;
+			font-family: $headerFont;
+		}
+	}
+	>.social {
+		grid-area: 'social';
+		box-sizing: border-box;
+	}
+}

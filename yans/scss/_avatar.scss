@@ -1,0 +1,11 @@
+.photo {
+  border: 1px solid #fff;
+  &_thumb {
+    width: 30px;
+    height: 30px;
+  }
+  &_main {
+    width: 150px;
+    height: 150px;
+  }
+}

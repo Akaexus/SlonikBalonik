@@ -1,0 +1,17 @@
+{
+  "name": "yans",
+  "version": "1.0.0",
+  "description": "* obsługa szablonów * klasa member * lang * sesje chyba",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.0.0-beta.5.3"
+  }
+}

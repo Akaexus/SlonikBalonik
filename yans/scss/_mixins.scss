@@ -1,0 +1,45 @@
+@import 'utils';
+@mixin triangle($direction, $color:currentcolor, $size:1em) {
+    width: 0;
+    height: 0;
+    content: '';
+    z-index: 2;
+    border: $size solid transparent;
+    @if not index(top right bottom left, $direction) {
+        @error 'Direction must be either top,right,bottom or left.';
+    }
+    @if $direction == top {
+      border-width: 0 $size sqrt(3)*$size $size;
+      border-color: transparent transparent $color transparent;
+    }
+    @else if $direction == bottom {
+      border-width: sqrt(3)*$size $size 0 $size;
+      border-color: $color transparent transparent transparent;
+    }
+    @else if $direction == right {
+      border-width: $size 0 $size sqrt(3)*$size;
+      border-color: transparent transparent transparent $color;
+    }
+    @else if $direction == left {
+      border-width: $size sqrt(3)*$size $size 0;
+      border-color: transparent $color transparent transparent;
+    }
+}
+
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
