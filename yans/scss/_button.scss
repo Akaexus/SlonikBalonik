@@ -1,0 +1,23 @@
+@import 'config';
+.button {
+    font-family: $headerFont;
+    border: 2px solid #fff;
+    padding: 0.5em;
+    border-radius: 0.2em;
+  &_transparent {
+    color: #fff;
+  }
+  &_black {
+    color: #000;
+    border-color: #000;
+  }
+  &_grey {
+    color: #323232;
+    border-color: #323232;
+  }
+  &_main {
+    color: #fff;
+    background: $mainColor;
+    border-color: $mainColor;
+  }
+}

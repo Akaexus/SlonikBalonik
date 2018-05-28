@@ -10,6 +10,7 @@ abstract class yansApp {
 
   function __construct() {
     $this->registry = yansRegistry::getInstance();
+    $this->DB = yansDatabase::getInstance();
   }
 }
 

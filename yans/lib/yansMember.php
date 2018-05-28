@@ -1,8 +1,14 @@
 <?php
 
 class yansMember {
-  function load() {
-    
+  static function load($id) {
+    $db = yansDatabase::getInstance();
+    $member = $db->select([
+      'select'=> '*',
+      'from'=>'yans_members',
+      'where'=> 'id='.$id
+    ]);
+    return $member[0];
   }
 }
 

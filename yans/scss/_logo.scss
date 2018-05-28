@@ -1,0 +1,26 @@
+@import 'config';
+
+.logo {
+	display: block;
+	text-align: center;
+	>h1 {
+		margin: 0 0.5em*sqrt(3) 0 0;
+		text-transform: uppercase;
+		display: inline-block;
+		font-family: $headerFont;
+		font-weight: 300;
+		font-size: 5em;
+		position: relative;
+		&:before {
+			@include triangle(bottom, #fff, 0.5em);
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(100%, -50%);
+		}
+	}
+	.desc {
+		display: block;
+		font-family: $headerFont;
+	}
+}

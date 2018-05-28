@@ -1,6 +1,9 @@
 <?php
+
+
 class yansDatabase {
     private $PDO;
+    static private $instance;
     public function __construct($config = array()) {
         try {
             $dsn = 'mysql:host='.$config['host'].';dbname='.$config['db'].';charset='.$config['charset'];
@@ -14,6 +17,14 @@ class yansDatabase {
             print_r($e);
             //TODO: error handling
         }
+    }
+    public static function getInstance($config = null) {
+      if(self::$instance === null) {
+        if($config) {
+          self::$instance = new yansDatabase($config);
+        }
+      }
+      return self::$instance;
     }
     public function query($query = '') {
         return $this->PDO->query($query);
@@ -48,6 +59,8 @@ class yansDatabase {
     public function select($options, $params = array()) {
         $query = 'SELECT '.$options['select'].' FROM '.$options['from'];
         $queryCompletions = array(
+            'join' => ' JOIN ',
+            'on'=> ' ON ',
             'where'=> ' WHERE ',
             'group'=> ' GROUP BY ',
             'having'=> ' HAVING ',
@@ -55,7 +68,12 @@ class yansDatabase {
             'limit'=> ' LIMIT '
         );
         $query .= $this->completeQuery($options, $queryCompletions);
-        return $this->prepareAndExecute($query, $params)->fetchAll();
+        $result = $this->prepareAndExecute($query, $params);
+        if($result) {
+          return $result->fetchAll();
+        } else {
+          return [];
+        }
     }
     public function update($options, $params = array()) {
         $query = 'UPDATE '.$options['update'].' SET ';
@@ -79,7 +97,7 @@ class yansDatabase {
             'limit'=> ' LIMIT '
         );
         $query .= $this->completeQuery($options, $queryCompletions);
-        return $this->prepareAndExecute($query, array_merge(array_values($options['set']), $params));
+        return $this->prepareAndExecute($query, $params);
     }
     public function insert($options) {
         $query = 'INSERT INTO '.$options['into'];

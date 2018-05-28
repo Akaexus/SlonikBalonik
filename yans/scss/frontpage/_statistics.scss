@@ -1,0 +1,24 @@
+@import 'config';
+
+section.statistics_section {
+  height: 80vh;
+  background: transparent url($imagesUrl+'statistics.png') no-repeat 50% 50% / 100% auto;
+  > .statistics {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    > .stat {
+      text-align: center;
+      font-family: $headerFont;
+      >.number {
+        font-weight: 300;
+        font-size: 5.5em;
+      }
+      >.desc {
+        font-variant: small-caps;
+        font-size: 1.5em;
+      }
+    }
+  }
+}

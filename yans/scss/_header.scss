@@ -28,64 +28,37 @@ header#header {
 				line-height: 1;
 			}
 		}
-		#user_nav {
-			&, >#user_dropdown {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-			}
-			#user_dropdown {
-				>* {
-					display: block;
-					margin: 0 0.4em;
-				}
-				>#user_dropdown_indicator:after {
-					@include triangle(bottom, #fff, 0.1em);
-				}
-			}
+		#search {
+
 		}
 	}
 }
 
-section#branding {
+
+#branding {
 	color: #FFF;
-	max-height: 100vh;
-	background-image: url($brandingImage), url($brandingBackground);
-	background-size: auto 100%, cover;
-	background-position: 50% 0;
-	background-repeat: no-repeat;
-	position: relative;
-	min-height: 400px;
-	text-align: center;
-	>.logo {
-		display: block;
-		position: absolute;
-		left: calc(50%);
-		bottom: 20%;
-		transform: translateX(-50%);
-		>h1 {
-			margin: 0 0.5em*sqrt(3) 0 0;
-			text-transform: uppercase;
-			display: inline-block;
-			font-family: $headerFont;
-			font-weight: 300;
-			font-size: 5em;
-			position: relative;
-			&:before {
-				@include triangle(bottom, #fff, 0.5em);
-				position: absolute;
-				right: 0;
-				top: 50%;
-				transform: translate(100%, -50%);
-			}
-		}
-		.desc {
-			display: block;
-			font-family: $headerFont;
-		}
+	background: $mainColor url($brandingBackgroundDark) no-repeat 50% 50% / cover;
+	>.main_width {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
-	>.social {
-		grid-area: 'social';
-		box-sizing: border-box;
+	&_extended {
+		color: #FFF;
+		max-height: 100vh;
+		background-color: $mainColor;
+		background-image: url($brandingImage), url($brandingBackground);
+		background-size: auto 100%, cover;
+		background-position: 50% 0;
+		background-repeat: no-repeat;
+		position: relative;
+		min-height: 400px;
+		text-align: center;
+		>.logo {
+			position: absolute;
+			left: calc(50%);
+			bottom: 20%;
+			transform: translateX(-50%);
+		}
 	}
 }

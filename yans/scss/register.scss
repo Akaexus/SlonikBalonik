@@ -1,0 +1,23 @@
+@import 'config';
+@import 'header';
+@import 'font';
+@import 'footer';
+@import 'logo';
+@import 'button';
+@import 'message';
+@import 'boxes';
+
+body {
+	font-family: $font;
+	margin: 0;
+	padding: 0;
+}
+
+.yansForm {
+	margin: 10px;
+	label {
+		display: block;
+		margin: 5px;
+		padding: 5px;
+	}
+}

@@ -2,7 +2,7 @@
 
 class error404 extends yansApp {
   function execute() {
-    echo '404, tut mir leid';
-    echo '<pre>'.print_r($this->registry, 1).'</pre>';
+    echo '<h1>404</h1>tut mir leid, aber something went wrong';
+    echo '<pre>'.print_r($_SERVER, 1).'</pre>';
   }
 }

@@ -1,0 +1,12 @@
+@import 'config';
+@import 'mixins';
+
+footer#footer {
+  color: #fff;
+  background: $mainColor url($brandingBackground) no-repeat 50% 50% / cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1em;
+}

@@ -1,0 +1,32 @@
+.message, .message a, .message.unspecific h3 {
+    color: inherit;
+
+}
+
+.message {
+    background: #cde3a4;
+    padding: 10px;
+    border: 1px solid #a8c471;
+    text-shadow: rgba(255,255,255,0.55) 0px 1px 0px;
+    line-height: 1.6;
+    font-size: 12px;
+    -webkit-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+    box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+    h3 {
+		padding: 0;
+		color: #323232;
+    }
+    &.error {
+		background: #f3e3e6;
+		border-color: #e599aa;
+		color: #660017;
+	}
+	&.unspecific {
+		background-color: #f3f3f3;
+		border-color: #d4d4d4;
+		color: #515151;
+		margin: 0 0 10px 0;
+		clear: both;
+	}
+}

@@ -3,6 +3,7 @@ $headerColor: #0f0f0f;
 $imagesUrl: 'imgs/';
 $brandingBackground: $imagesUrl+'branding.jpg';
 $brandingImage: $imagesUrl+'branding2.png';
+$brandingBackgroundDark: $imagesUrl+'branding2.jpg';
 
 //typeface
 $font: 'Lato', 'Arial', 'Helvetica', sans-serif;
@@ -11,3 +12,8 @@ $headerFont: 'Open Sans', 'Lato', 'Arial', 'Helvetica', sans-serif;
 
 //colors
 $mainColor: #283a4a;
+
+.main_width {
+  width: 90%;
+  margin: 0 auto;
+}
